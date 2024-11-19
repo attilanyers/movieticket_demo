@@ -1,0 +1,909 @@
+{
+  "info": {
+    "name": "MovieTicket",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/auth/login",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["auth", "login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"password\" : \"password\",\r\n  \"role\" : \"ADMIN\",\r\n  \"email\" : \"marielle-369@email.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Movie",
+      "item": [
+        {
+          "name": "createMovie",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/movie",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["movie"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"director\" : \"director-25\",\r\n  \"title\" : \"title-367\",\r\n  \"duration\" : 841,\r\n  \"genre\" : \"genre-720\",\r\n  \"id\" : 21\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getMovie",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/movie/{movieId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["movie", "{movieId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "updateMovie",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/movie/{movieId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["movie", "{movieId}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"director\" : \"director-50\",\r\n  \"title\" : \"title-483\",\r\n  \"duration\" : 384,\r\n  \"genre\" : \"genre-349\",\r\n  \"id\" : 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteMovie",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/movie/{movieId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["movie", "{movieId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "listMovie",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/movie",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["movie"]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cinema",
+      "item": [
+        {
+          "name": "createCinema",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/cinema",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["cinema"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"location\" : \"location-668\",\r\n  \"id\" : 21,\r\n  \"name\" : \"name-650\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getCinema",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/cinema/{cinemaId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["cinema", "{cinemaId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "updateCinema",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/cinema/{cinemaId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["cinema", "{cinemaId}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"location\" : \"location-153\",\r\n  \"id\" : 1,\r\n  \"name\" : \"name-768\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteCinema",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/cinema/{cinemaId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["cinema", "{cinemaId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "listCinema",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/cinema",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["cinema"]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "createUser",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/users",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["users"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"password\" : \"password\",\r\n  \"role\" : \"ADMIN\",\r\n  \"email\" : \"marielle-369@email.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateUser",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/users/{userId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["users", "{userId}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"password\" : \"password\",\r\n  \"email\" : \"admin-1@email.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteUser",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/users/{userId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["users", "{userId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "deleteAllUser",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/users",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["users"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "getUser",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/users/{userId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["users", "{userId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "listUser",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/users/listUser",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["users", "listUser"]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Screening",
+      "item": [
+        {
+          "name": "createScreening",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/screening",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["screening"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\" : 21,\r\n  \"startTime\" : \"2024-11-16T01:29:52.125233300\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getScreening",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/screening/{screeningId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["screening", "{screeningId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "updateScreening",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/screening/{screeningId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["screening", "{screeningId}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\" : 1,\r\n  \"startTime\" : \"2024-11-23T11:42:51.060591\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteScreening",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/screening/{screeningId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["screening", "{screeningId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "listScreening",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/screening",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["screening"]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reservation",
+      "item": [
+        {
+          "name": "createReservation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/reservation",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["reservation"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\" : 12,\r\n  \"seatNumber\" : \"seatNumber-257\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getReservation",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/reservation/{reservationId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["reservation", "{reservationId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "updateReservation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/reservation/{reservationId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["reservation", "{reservationId}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\" : 16,\r\n  \"seatNumber\" : \"seatNumber-701\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteReservation",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/reservation/{reservationId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["reservation", "{reservationId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "listReservation",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/reservation",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["reservation"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "customReservation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/reservationCustom",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["reservationCustom"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"x\" : \"x-454\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "UserAuthority",
+      "item": [
+        {
+          "name": "createUserAuthority",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/userAuthorities",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["userAuthorities"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"authority\" : \"authority-850\",\r\n  \"id\" : \"ba146a8d-4b61-4fc2-849b-59dcdcf07a99\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateUserAuthority",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/userAuthorities/{userAuthorityId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["userAuthorities", "{userAuthorityId}"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"authority\" : \"ADMIN\",\r\n  \"id\" : \"ba146a8d-4b61-4fc2-849b-59dcdcf07a99\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteUserAuthority",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/userAuthorities/{userAuthorityId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["userAuthorities", "{userAuthorityId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "deleteAllUserAuthority",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/userAuthorities",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["userAuthorities"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "getUserAuthority",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/userAuthorities/{userAuthorityId}",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["userAuthorities", "{userAuthorityId}"]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "listUserAuthority",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminAuthToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/userAuthorities/listUserAuthority",
+              "protocol": "http",
+              "port": "{{port}}",
+              "host": ["{{host}}"],
+              "path": ["userAuthorities", "listUserAuthority"]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": "localhost",
+      "type": "string"
+    },
+    {
+      "key": "port",
+      "value": "8080",
+      "type": "string"
+    }
+  ]
+}

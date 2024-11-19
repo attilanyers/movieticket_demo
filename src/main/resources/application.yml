@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/movie_ticket
+    username: postgres
+    password: a
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+  mail:
+    host: email-host
+    port: 587
+    username: username
+    password: password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+email:
+  from: info@mail.com
+  passwordResetHost: http://localhost:8080
+
+jwt:
+  private-key: classpath:certs/jwt-private-key.pem
+  public-key: classpath:certs/jwt-public-key.pem
+
+
